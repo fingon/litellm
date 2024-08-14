@@ -362,13 +362,9 @@ class LowestLatencyLoggingHandler(CustomLogger):
                 if self.test_flag:
                     self.logged_success += 1
         except Exception as e:
-            verbose_logger.error(
-                "litellm.router_strategy.lowest_latency.py::async_log_success_event(): Exception occured - {}".format(
-                    str(e)
-                )
+            verbose_logger.exception(
+                "litellm.router_strategy.lowest_latency.py::async_log_success_event()"
             )
-            verbose_logger.debug(traceback.format_exc())
-            pass
 
     def get_available_deployments(
         self,
